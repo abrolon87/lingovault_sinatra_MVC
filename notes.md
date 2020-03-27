@@ -6,3 +6,10 @@ Models
 
 Views
 - 
+
+Tables
+- Users have 
+  name
+  username 
+  password 
+  language
