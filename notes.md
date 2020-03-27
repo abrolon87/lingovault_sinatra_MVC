@@ -9,10 +9,9 @@ Views
 
 Tables
 - Users have 
-  name
   username 
+  email
   password 
-  language
 
 - Languages have 
   name 
