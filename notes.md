@@ -13,3 +13,8 @@ Tables
   username 
   password 
   language
+
+- Languages have 
+  name 
+  level 
+  background
