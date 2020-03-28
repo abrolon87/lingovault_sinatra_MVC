@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  
+  get '/users' do 
+    @users = User.all
+    erb :'/users/index'
+  end 
 
   get '/signup' do 
     if Helpers.is_logged_in?(session)
