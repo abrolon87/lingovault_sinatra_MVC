@@ -35,7 +35,7 @@ class LanguagesController < ApplicationController
   
   get '/languages/:id/edit' do 
     @language = Language.find_by(id: params[:id])
-    if !Helpers.is_logged_in?(session) || @language.user != Helpers.current_user(session) 
+    if !Helpers.is_logged_in?(session) || !@language || @language.user != Helpers.current_user(session) 
       redirect '/'
     end
     erb :'/languages/edit'
@@ -43,7 +43,20 @@ class LanguagesController < ApplicationController
   
   patch '/languages/:id' do 
     language = Language.find_by(id: params[:id])
-    language.update(params[:language])
-    redirect to "/languages/#{language.id}"
+    if language && language.user == Helpers.current_user(session)
+      language.update(params[:language])
+      redirect to "/languages/#{language.id}"
+    else  
+      redirect to "/languages"
+    end
   end
+
+  delete '/languages/:id/delete' do 
+    language = Language.find_by(id: params[:id]) 
+    if language && language.user == Helpers.current_user(session)
+      language.destroy
+    end 
+    redirect to '/languages' 
+  end
+
 end
