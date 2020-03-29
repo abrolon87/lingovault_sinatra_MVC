@@ -1,1 +1,8 @@
 <h1> Welcome, <%= @user.username %>! </h1>
+
+<ul>
+  <% @languages.each do |language| %>
+   <li><a href="/"> <%= language.name %> </a></li> 
+   <% end %>
+</ul>
+   

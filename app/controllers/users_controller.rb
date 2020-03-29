@@ -43,13 +43,19 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/:id' do 
-    if User.find_by(id: params[:id])  
+  get '/users/:id' do
+    if Helpers.is_logged_in?(session) && User.find_by(id: params[:id])  
       @user = User.find_by(id: params[:id])
+      @languages = @user.languages
     else  
       redirect to '/'
     end
     erb :'users/show' 
   end
+
+  get '/logout' do 
+    session.clear
+    redirect to '/login'
+  end 
 
 end
