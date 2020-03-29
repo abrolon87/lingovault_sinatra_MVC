@@ -2,7 +2,7 @@
 
 <ul>
   <% @languages.each do |language| %>
-   <li><a href="/"> <%= language.name %> </a></li> 
+   <li><a href="/languages/<%= language.id %>"> <%= language.name %> </a></li> 
    <% end %>
 </ul>
    

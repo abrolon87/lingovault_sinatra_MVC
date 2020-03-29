@@ -17,10 +17,11 @@
     <div class="wrapper">
       <% if Helpers.is_logged_in?(session) %>
       <p class="links"><a href="/logout" class="logout">Log Out</a></p>
-      <p class="links"><a href="/users/<%= Helpers.current_user(session).id if Helpers.is_logged_in?(session) %>">My Languages</a></p>
+      <p class="links"><a href="/users/<% Helpers.current_user(session).id if Helpers.is_logged_in?(session) %>">My Languages</a></p>
       <p class="links"><a href="/languages/new">Add New Language</a></p>
-      <p class="links"><a href="#">All Languages</a></p>
+      <p class="links"><a href="/languages">All Languages</a></p>
       <p class="links"><a href="/users">All Users</a></p>
+      
       <% end %>  
         <%= yield %>
 
