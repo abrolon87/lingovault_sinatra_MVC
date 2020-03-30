@@ -1,4 +1,4 @@
-require './config/environment'
+#require './config/environment'
 
 class ApplicationController < Sinatra::Base
 
@@ -9,8 +9,8 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "hfr8732h398fjiof83"
   end
 
-  get "/users/" do
-    erb :index
+  get "/" do
+    erb :welcome
   end
 
 end

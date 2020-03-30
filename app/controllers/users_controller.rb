@@ -1,19 +1,14 @@
 class UsersController < ApplicationController
   
   get '/users' do 
-    @users = User.all
+    if Helpers.is_logged_in?(session)
+      @users = User.all
+    else
+      redirect to '/'
+    end  
     erb :'/users/index'
   end 
 
-  get '/signup' do 
-    if Helpers.is_logged_in?(session)
-      user = Helpers.current_user(session)
-      redirect to "/users/#{user.id}" 
-    else 
-      erb :'users/signup'
-    end
-  end 
-  
   get '/login' do 
     if Helpers.is_logged_in?(session)
       user = Helpers.current_user(session)
@@ -30,6 +25,15 @@ class UsersController < ApplicationController
       redirect to "/users/#{user.id}"
     else  
       redirect to '/signup'
+    end
+  end 
+
+  get '/signup' do 
+    if Helpers.is_logged_in?(session)
+      user = Helpers.current_user(session)
+      redirect to "/users/#{user.id}" 
+    else 
+      erb :'users/signup'
     end
   end 
 
@@ -55,7 +59,7 @@ class UsersController < ApplicationController
 
   get '/logout' do 
     session.clear
-    redirect to '/login'
+    redirect to '/'
   end 
 
 end

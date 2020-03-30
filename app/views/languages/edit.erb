@@ -1,35 +1,30 @@
-<h2>Edit Language</h2>
+<h2>Update Language</h2>
 
 <form action="/languages/<%= @language.id %>" method="post"> 
   <input type="hidden" name="_method" value="patch">
   <label>Language: </label>
-  <input type="text" name="language[name]" value="<%=@language.name%>%"><br><br>
-
+  <input type="text" name="language[name]" value="<%=@language.name%>"><br><br>
+  <label>Level: </label><br />
   <input type="radio" id="beginner"
-           name="language[level]" value="beginner">
+           name="language[level]" value="Beginner">
   <label for="beginner">Beginner</label><br>
   <input type="radio" id="elementary"
-           name="language[level]" value="elementary">
+           name="language[level]" value="Elementary">
   <label for="elementary">Elementary</label><br>
   <input type="radio" id="intermediate"
-           name="language[level]" value="intermediate">
+           name="language[level]" value="Intermediate">
   <label for="intermediate">Intermediate</label><br>
   <input type="radio" id="advanced"
-           name="language[level]" value="advanced">
+           name="language[level]" value="Advanced">
   <label for="advanced">Advanced</label><br>
   <input type="radio" id="native"
-           name="language[level]" value="native">
+           name="language[level]" value="Native">
   <label for="native">Native</label><br><br>
 
   <label>Experience: </label><br>
   <textarea rows="16" cols="80" type="text" name="language[exp]" value="<%= @language.exp %>"></textarea><br />
 
-  <input type="submit" value="Edit Language">
+  <input type="submit" value="Update Language">
 
-    
-
-
-
-
-
+  
 </form>
