@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: green;
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -28,6 +28,7 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
+
   }
 
   h1 {
@@ -112,4 +113,5 @@
     font-size: 18px;
     line-height: 24px;
   }
+
 }

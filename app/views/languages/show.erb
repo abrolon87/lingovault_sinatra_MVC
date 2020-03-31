@@ -5,11 +5,11 @@
 
 <% if Helpers.current_user(session) == @language.user %>
   <a href="/languages/<%=@language.id%>/edit">Edit Language</a>
-<%end%>
+
 
 <form action="/languages/<%=@language.id%>/delete" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">
 
 </form>
-
+<% end %>
