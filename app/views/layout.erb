@@ -16,7 +16,7 @@
     ul { 
       list-style-type: none;
       margin: 25;
-      padding: 25;
+      padding: 35;
     }
     li {
       display: inline;
@@ -29,9 +29,9 @@
       
       <% if Helpers.is_logged_in?(session) %>
        
-        <li><a href="/users/<%=Helpers.current_user(session).id if Helpers.is_logged_in?(session)%>">My Languages</a></li>
+        <li><a href="/users/<%=Helpers.current_user(session).id if Helpers.is_logged_in?(session)%>">My Vault</a></li>
         <li><a href="/languages/new">Add New Language</a></li>
-        <li><a href="/languages">All Languages</a></li>
+        <li><a href="/languages">Other Languages</a></li>
         <li><a href="/users">Other Users</a></li>
         <li style="float:right"><a href="/logout" class="logout">Log Out</a></li>
         
