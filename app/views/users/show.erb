@@ -1,8 +1,10 @@
-<h1> Welcome, <%= @user.name %>! </h1>
-
-<ul>
+<!-- <h1> Welcome, <%= @user.name if Helpers.is_logged_in?(session) == User.find_by(id: params[:id])%>!</h1><br> -->
+   <% if Helpers.current_user(session) == User.find_by(id: params[:id]) %>
+        <h1> Welcome, <%= @user.name %>!</h1><br />
+   <% else %> 
+        <h1> <%= @user.name %>'s Language Vault </h1><br />
+   <% end %> 
   <% @languages.each do |language| %>
-   <li><a href="/languages/<%= language.id %>"> <%= language.name %> </a></li> 
+   <p><a href="/languages/<%= language.id %>"> <%= language.name %> </a></p> 
    <% end %>
-</ul>
    

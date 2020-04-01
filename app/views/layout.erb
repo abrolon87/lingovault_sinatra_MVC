@@ -15,8 +15,8 @@
     <style> 
     ul { 
       list-style-type: none;
-      margin: 10;
-      padding: 10;
+      margin: 25;
+      padding: 25;
     }
     li {
       display: inline;
@@ -32,11 +32,11 @@
         <li><a href="/users/<%=Helpers.current_user(session).id if Helpers.is_logged_in?(session)%>">My Languages</a></li>
         <li><a href="/languages/new">Add New Language</a></li>
         <li><a href="/languages">All Languages</a></li>
-        <li><a href="/users">All Users</a></li>
+        <li><a href="/users">Other Users</a></li>
         <li style="float:right"><a href="/logout" class="logout">Log Out</a></li>
         
       <% end %>  
-      </ul>
+      </ul><br>
       
       <%= yield %>
       <footer class="branding">

@@ -1,7 +1,8 @@
-<h1>Languages<h1>
-<ul>
-<% @languages.each do |language| %>
-    <li><a href="/languages/<%=language.id%>"><%=language.name%></a></li>
+<h2>Languages<h2>
+
+  <% @languages.each do |language| %>
+      
+      <p><a href="/languages/<%=language.id%>"><%=language.name%></a><label> posted by </label></p>
     
-<% end %>
-</ul>
+  <% end %>
+    
