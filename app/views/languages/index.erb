@@ -1,8 +1,7 @@
 <h2>Languages<h2>
 
   <% @languages.each do |language| %>
-      
-      <p><a href="/languages/<%=language.id%>"><%=language.name%></a><label> posted by </label></p>
-    
+      <p><a href="/languages/<%=language.id%>"><%=language.name%></a><label> posted by <%= language.user.username %></label></p>
+        
   <% end %>
     

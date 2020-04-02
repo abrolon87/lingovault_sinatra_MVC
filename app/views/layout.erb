@@ -24,19 +24,23 @@
     </style>
   </head>
   <body>
+  
     <div class="wrapper">
+    <h1>LingoVault</h1>
+    <div>
       <ul>
       
       <% if Helpers.is_logged_in?(session) %>
        
-        <li><a href="/users/<%=Helpers.current_user(session).id if Helpers.is_logged_in?(session)%>">My Vault</a></li>
+        <li><a href="/users/<%=Helpers.current_user(session).id if Helpers.is_logged_in?(session)%>">My LingoVault</a></li>
         <li><a href="/languages/new">Add New Language</a></li>
-        <li><a href="/languages">Other Languages</a></li>
+        <li><a href="/languages">Other LingoVaults</a></li>
         <li><a href="/users">Other Users</a></li>
         <li style="float:right"><a href="/logout" class="logout">Log Out</a></li>
         
       <% end %>  
-      </ul><br>
+      </ul>
+      </div><br>
       
       <%= yield %>
       <footer class="branding">
