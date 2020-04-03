@@ -2,9 +2,9 @@
    
    
    <% if Helpers.current_user(session) == User.find_by(id: params[:id]) %>
-        <h1> Welcome, <%= @user.name %>!</h1><br />
+        <h2> Welcome, <%= @user.name %>!</h2>
    <% else %> 
-        <h1> <%= @user.name %>'s Language Vault </h1><br />
+        <h2> <%= @user.name %>'s LingoVault </h2>
    <% end %> 
   <% @languages.each do |language| %>
    <p><a href="/languages/<%= language.id %>"> <%= language.name %> </a></p> 

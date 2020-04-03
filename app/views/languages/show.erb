@@ -1,11 +1,15 @@
-<br>
-<h4>Language: <%= @language.name %></h4><br>
-<h5>Level: <%= @language.level %></h5><br>
-<h5>Learning Experience: </h5><br>
+<% if Helpers.current_user(session) != @language.user %>
+  <h2>From <%= @language.user.username %>'s LingoVault:</h2>
+<% else %>
+  <h2>From Your LingoVault:</h2>
+<% end %> 
+<p>Language: <%= @language.name %></p>
+<p>Level: <%= @language.level %></p>
+<p>Learning Experience: </p>
 <p><%= @language.exp %></p>
 
 <% if Helpers.current_user(session) == @language.user %>
-  <a href="/languages/<%=@language.id%>/edit">Edit Language</a>
+  <a href="/languages/<%=@language.id%>/edit">Update Language</a>
 
 
 <form action="/languages/<%=@language.id%>/delete" method="post">

@@ -17,13 +17,15 @@ class LanguagesController < ApplicationController
   end
 
   post '/languages' do 
-    #if Helpers.current_user(session).id == Language.find_by(id: params[:id]).user_id
+    if Helpers.is_logged_in?(session) #.id == Language.find_by(id: params[:id]).user_id
       language = Language.create(params)
       user = Helpers.current_user(session)
       language.user = user 
       language.save
-      redirect to "/users/#{user.id}"
-    #end
+      redirect to "/users/#{user.id}" 
+    else   
+      redirect '/'
+    end
   end
 
   get '/languages/:id' do 
