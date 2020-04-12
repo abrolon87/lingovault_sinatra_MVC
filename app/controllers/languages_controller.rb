@@ -60,7 +60,7 @@ class LanguagesController < ApplicationController
     if language && language.user == Helpers.current_user(session)
       language.destroy
     end 
-    redirect to '/languages' 
+    redirect to "/users/#{Helpers.current_user(session).id}" 
   end
 
 end
