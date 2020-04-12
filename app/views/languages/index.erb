@@ -1,7 +1,8 @@
 <h2>Other LingoVaults</h2>
 
   <% @languages.each do |language| %>
+    <% if language.user != Helpers.current_user(session) %>
       <p><a href="/languages/<%=language.id%>"><%=language.name%></a> <label> by <%= language.user.username %></label></p>
-        
+    <% end%>
   <% end %>
     
