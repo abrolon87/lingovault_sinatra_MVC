@@ -5,9 +5,10 @@ With this Sinatra MVC app, you can keep track of your lingustic adventures as we
 ## Installation
 1 - Clone this repository
 2 - Run `bundle install` to install the dependencies
-3 - Run `shotgun` 
-4 - Go to the specified localhost in your terminal
-5 - Enjoy!
+3 - Run `rake db:migrate`
+4 - Run `shotgun` 
+5 - Go to the specified localhost in your terminal
+
 
 ## Usage
 1 - Sign up or log in 
