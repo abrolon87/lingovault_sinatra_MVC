@@ -6,7 +6,7 @@
    <% else %> 
         <h2> <%= @user.name %>'s LingoVault </h2>
    <% end %> 
-  <% @languages.each do |language| %>
+  <% @user.languages.each do |language| %>
    <p><a href="/languages/<%= language.id %>"> <%= language.name %> </a></p> 
    <% end %>
    

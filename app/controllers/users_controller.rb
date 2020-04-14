@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   get '/users/:id' do
     if Helpers.is_logged_in?(session) && User.find_by(id: params[:id])  
       @user = User.find_by(id: params[:id])
-      @languages = @user.languages
+      #@languages = 
     else  
       redirect to '/'
     end

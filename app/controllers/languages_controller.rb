@@ -18,11 +18,16 @@ class LanguagesController < ApplicationController
 
   post '/languages' do 
     if Helpers.is_logged_in?(session) #.id == Language.find_by(id: params[:id]).user_id
-      language = Language.create(params)
+      language = Language.new(params)
+      
       user = Helpers.current_user(session)
       language.user = user 
-      language.save
-      redirect to "/users/#{user.id}" 
+      
+      if language.save 
+        redirect to "/users/#{user.id}" 
+      else  
+        redirect '/languages/new'  
+      end
     else   
       redirect '/'
     end
@@ -38,9 +43,13 @@ class LanguagesController < ApplicationController
   end
   
   get '/languages/:id/edit' do 
+    Helpers.not_logged_in? 
     @language = Language.find_by(id: params[:id])
-    if !Helpers.is_logged_in?(session) || !@language || @language.user != Helpers.current_user(session) 
-      redirect '/'
+    if !@language       
+      redirect "/languages"
+    end
+    if @language.user != Helpers.current_user(session) 
+      redirect "/users/#{Helpers.current_user(session).id}"
     end
     erb :'/languages/edit'
   end
